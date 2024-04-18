@@ -51,10 +51,10 @@ def notifications = new com.genesys.jenkins.Notifications()
 def chatGroupId = 'adhoc-60e40c95-3d9c-458e-a48e-ca4b29cf486d'
 
 webappPipeline {
-    team = 'Genesys Client Media (WebRTC)'
+    team = 'Client Streaming and Signaling'
     projectName = 'client-auth'
     nodeVersion = '14.x'
-    mailer = 'genesyscloud-client-media@genesys.com'
+    mailer = 'GcMediaStreamSignal@genesys.com'
     buildType = getBranchType
     manifest = staticManifest([
         'index.html',
