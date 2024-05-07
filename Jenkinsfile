@@ -53,6 +53,7 @@ def chatGroupId = 'adhoc-60e40c95-3d9c-458e-a48e-ca4b29cf486d'
 webappPipeline {
     team = 'Client Streaming and Signaling'
     projectName = 'client-auth'
+    jiraProjectKey = 'STREAM'
     nodeVersion = '14.x'
     mailer = 'GcMediaStreamSignal@genesys.com'
     buildType = getBranchType
