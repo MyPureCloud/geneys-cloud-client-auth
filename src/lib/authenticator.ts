@@ -20,7 +20,7 @@ export class GenesysCloudClientAuthenticator {
   readonly clientId: string;
   /** client-auth version */
   readonly VERSION: string = VERSION;
-  /** current authencation data for this instance. default is an empty object `{}`*/
+  /** current authencation data for this instance. default is an empty object `{}` */
   authData: IAuthData;
   /** current configuration for this instance */
   config: IAuthenticatorConfig;
@@ -99,7 +99,7 @@ export class GenesysCloudClientAuthenticator {
       if (hash && hash.error) {
         hash.accessToken = undefined;
         this._saveSettings(hash);
-        reject(new Error(`[${hash.error}] ${hash.error_description}`))
+        reject(new Error(`[${hash.error}] ${hash.error_description}`));
       }
 
       /* if we have an acess token in the hash, save it before testing */
@@ -118,7 +118,6 @@ export class GenesysCloudClientAuthenticator {
         })
         .catch((error) => {
           this._debug('Error encountered during login. This is normal if the application has not yet been authorized.', error);
-
 
           const query: IAuthRequestParams = {
             client_id: encodeURIComponent(this.clientId),
@@ -172,7 +171,7 @@ export class GenesysCloudClientAuthenticator {
     }
 
     if (environment.startsWith('http://')) {
-      environment = environment.substring(7)
+      environment = environment.substring(7);
     }
 
     if (environment.startsWith('api.')) {
@@ -234,7 +233,7 @@ export class GenesysCloudClientAuthenticator {
    * @returns a promise that will resolve is successful
    */
   testAccessToken (token: string): Promise<any> {
-    return this.callApi('/api/v2/tokens/me', 'get', token)
+    return this.callApi('/api/v2/tokens/me', 'get', token);
   }
 
   /**
@@ -397,6 +396,7 @@ export class GenesysCloudClientAuthenticator {
       this._debug('Implicit grant: opening new window: ' + loginUrl);
 
       /* this will always be `null` if `nofererrer` or `noopener` is set */
+      // tslint:disable-next-line
       window.open(loginUrl, '_blank', 'width=500px,height=500px,noreferrer,noopener,resizable,scrollbars,status') as Window;
 
       const timeoutId = setTimeout(() => {
@@ -446,6 +446,7 @@ export class GenesysCloudClientAuthenticator {
 
     try {
       // Test token
+      // tslint:disable-next-line
       await this.callApi('/api/v2/tokens/me', 'get');
     } catch (error) {
       this._saveSettings({ accessToken: undefined });
