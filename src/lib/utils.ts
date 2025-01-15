@@ -57,7 +57,6 @@ export const parseOauthParams = (hash: string = window.location.hash): IAuthData
 
     /* calculate expiry time */
     if (hashAsObj.expires_in) {
-      // tslint:disable-next-line
       const expiresInMs = (parseInt(hashAsObj.expires_in.replace(/\+/g, '%20')) * 1000);
 
       authData.tokenExpiryTime = Date.now() + expiresInMs;

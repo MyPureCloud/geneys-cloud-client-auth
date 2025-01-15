@@ -396,7 +396,6 @@ export class GenesysCloudClientAuthenticator {
       this._debug('Implicit grant: opening new window: ' + loginUrl);
 
       /* this will always be `null` if `nofererrer` or `noopener` is set */
-      // tslint:disable-next-line
       window.open(loginUrl, '_blank', 'width=500px,height=500px,noreferrer,noopener,resizable,scrollbars,status') as Window;
 
       const timeoutId = setTimeout(() => {
@@ -446,7 +445,6 @@ export class GenesysCloudClientAuthenticator {
 
     try {
       // Test token
-      // tslint:disable-next-line
       await this.callApi('/api/v2/tokens/me', 'get');
     } catch (error) {
       this._saveSettings({ accessToken: undefined });
